@@ -1,13 +1,22 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/login">login</router-link> |
-    <router-link to="/signup">signup</router-link> |
-    <router-link to="/products">products</router-link> |
-    <router-link to="/product">product Details</router-link>
-  </nav>
+<Navbar/>
   <router-view />
+  <Footer/>
 </template>
+
+<script>
+// import OhVueIcon from "oh-vue-icons";
+import Navbar from "./components/Navbar.vue"
+import Footer from "./components/Footer.vue"
+export default {
+  components: {
+    Navbar,
+    Footer
+    // "v-icon": OhVueIcon
+  }
+};
+
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");

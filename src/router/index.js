@@ -5,6 +5,7 @@ import SignupView from '../views/SignupView.vue'
 import NotFound from '../views/NotFound.vue'
 import ProductView from '../views/ProductView.vue'
 import ProductDetailsView from '../views/ProductDetailsView.vue'
+import ProfileView from '../views/ProfileView.vue'
 
 const routes = [
   {
@@ -48,6 +49,14 @@ const routes = [
     }
   },
   {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView,
+    meta: {
+      title: "Profile"
+    }
+  },
+  {
     path: '/:catchAll(.*)',
     name: 'NotFound',
     component: NotFound,
@@ -59,6 +68,11 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from, next)=>{
+  document.title = `${to.meta.title} | VueShop`;
+  next();
 })
 
 export default router
