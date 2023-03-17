@@ -78,7 +78,7 @@
       <div class="text-left">
         WANT TO SEE ALL OUR PRODUCTS? REGISTER YOUR FREE ACCOUNT TODAY
       </div>
-      <router-link :to="{ name: 'login' }"
+      <router-link :to="{ name: 'signup' }"
         ><button className="text-theme bg-back px-3 py-1 rounded-full">
           REGISTER
         </button></router-link
@@ -94,7 +94,6 @@ import { useStore } from "vuex";
 const store = useStore();
 const products = computed(() => store.state.products);
 const user = computed(()=>store.state.user)
-console.log(products.value[0]);
 </script>
 
 <script>

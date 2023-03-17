@@ -6,6 +6,7 @@ import NotFound from '../views/NotFound.vue'
 import ProductView from '../views/ProductView.vue'
 import ProductDetailsView from '../views/ProductDetailsView.vue'
 import ProfileView from '../views/ProfileView.vue'
+import { auth } from '../services/firbaseConfig'
 
 const routes = [
   {
@@ -13,7 +14,8 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta: {
-      title: "Home"
+      title: "Home",
+      requiresAuth: false,
     }
   },
   {
@@ -21,7 +23,8 @@ const routes = [
     name: 'login',
     component: LoginView,
     meta: {
-      title: "Login"
+      title: "Login",
+      requiresAuth: false,
     }
   },
   {
@@ -29,7 +32,8 @@ const routes = [
     name: 'signup',
     component: SignupView,
     meta: {
-      title: "Sign up"
+      title: "Sign up",
+      requiresAuth: false,
     }
   },
   {
@@ -37,7 +41,8 @@ const routes = [
     name: 'products',
     component: ProductView,
     meta: {
-      title: "Products"
+      title: "Products",
+      requiresAuth: true,
     }
   },
   {
@@ -45,7 +50,8 @@ const routes = [
     name: 'product',
     component: ProductDetailsView,
     meta: {
-      title: "Product"
+      title: "Product",
+      requiresAuth: true,
     }
   },
   {
@@ -53,7 +59,8 @@ const routes = [
     name: 'profile',
     component: ProfileView,
     meta: {
-      title: "Profile"
+      title: "Profile",
+      requiresAuth: true,
     }
   },
   {
@@ -70,9 +77,22 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next)=>{
+router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title} | VueShop`;
   next();
 })
+
+router.beforeEach((to, from, next) => {
+  let user = auth.currentUser
+  if (to.matched.some((res) => res.meta.requiresAuth)) {
+    if (user) {
+      
+      return next()
+    }
+    return next({ name: "login" })
+  }
+  return next()
+})
+
 
 export default router

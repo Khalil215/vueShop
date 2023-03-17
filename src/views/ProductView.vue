@@ -99,7 +99,7 @@ const skins = computed(() => store.getters.skins);
 const groceries = computed(() => store.getters.groceries);
 const homes = computed(() => store.getters.homes);
 
-console.log(products)
+
 
 </script>
 

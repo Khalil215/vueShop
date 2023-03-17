@@ -10,10 +10,25 @@
 <script setup>
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
+import { auth } from './services/firbaseConfig'
+import { onAuthStateChanged } from 'firebase/auth'
 
 const store = useStore();
 const showNav = computed(() => store.state.showNav);
 const pageLoaded = computed(() => store.state.pageLoaded);
+
+
+const auths = ()=>{
+onAuthStateChanged(auth, (user)=>{
+  store.commit("updateUser", true)
+  console.log(user)
+if(user){
+  store.dispatch("getCurrentUser", {id: user.uid})
+}
+})
+}
+
+auths() 
 
 const getProducts = ()=>{
   store.dispatch('getProducts')
