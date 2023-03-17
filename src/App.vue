@@ -1,21 +1,37 @@
 <template>
-<Navbar/>
-  <router-view />
-  <Footer/>
+  <div v-if="pageLoaded">
+    <Navbar v-show="showNav" />
+      <router-view/>
+    
+    <Footer v-show="showNav" />
+  </div>
 </template>
+
+<script setup>
+import { computed, onMounted } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const showNav = computed(() => store.state.showNav);
+const pageLoaded = computed(() => store.state.pageLoaded);
+
+const getProducts = ()=>{
+  store.dispatch('getProducts')
+}
+getProducts()
+</script>
 
 <script>
 // import OhVueIcon from "oh-vue-icons";
-import Navbar from "./components/Navbar.vue"
-import Footer from "./components/Footer.vue"
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 export default {
   components: {
     Navbar,
-    Footer
+    Footer,
     // "v-icon": OhVueIcon
-  }
+  },
 };
-
 </script>
 
 <style>
@@ -23,22 +39,6 @@ export default {
 
 * {
   font-family: "Quicksand", sans-serif;
-}
-
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
 }
 
 nav a.router-link-exact-active {

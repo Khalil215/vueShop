@@ -1,18 +1,18 @@
 <template>
-  <div className='grid gap-10 sm:flex justify-around  bg-back text-white text-lg py-10'>
+  <div className='grid gap-10 sm:flex justify-around bg-back text-white py-10'>
     <div className="grid gap-4">
-      <div className="font-bold text-xl">VueShop</div>
+      <div className="font-bold text-xl text-center">VueShop</div>
       <div className="flex gap-4 justify-center">
         <v-icon  name="bi-youtube"/>
         <v-icon  name="bi-twitter"/>
         <v-icon  name="bi-instagram"/>
       </div>
     </div>
-    <div className="flex gap-4 sm:grid text-left justify-center ">
+    <div className="flex gap-4 sm:grid text-left justify-center underline">
       <router-link :to="{name:'home'}">HOME</router-link>
       <router-link :to="{name:'products'}">PRODUCTS</router-link>
     </div>
-    <div>
+    <div className="self-end">
       <div>&#169; Khalil 2023 All Rights Reserved</div>
     </div>
   </div>
