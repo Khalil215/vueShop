@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <div
+    <div v-show="!user"
       className="flex flex-col sm:flex-row justify-between w-1/2 gap-10 mx-auto py-10"
     >
       <div class="text-left">
@@ -93,6 +93,7 @@ import { useStore } from "vuex";
 
 const store = useStore();
 const products = computed(() => store.state.products);
+const user = computed(()=>store.state.user)
 console.log(products.value[0]);
 </script>
 

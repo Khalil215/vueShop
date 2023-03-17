@@ -7,7 +7,7 @@
     <span> Failed to Load Page. Please Reload</span>
   </div>
 <div v-else>
-  <h1 className="text-3xl font-bold mt-4 text-center mb-5">Products</h1>
+  <h1 className="text-2xl font-bold mt-4 text-center mb-10">PRODUCTS</h1>
     <div className="grid gap-20 w-[80%] mx-auto mb-12">
       <div>
         <p class="text-2xl underline font-bold mb-5 text-theme">Smart Phones</p>

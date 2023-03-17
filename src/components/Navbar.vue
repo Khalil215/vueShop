@@ -5,7 +5,7 @@
       <router-link :to="{name:'home'}">HOME</router-link>
       <router-link :to="{name:'products'}">PRODUCTS</router-link>
       <router-link v-if="!user" :to="{name:'login'}">LOGIN/REGISTER</router-link>
-      <router-link v-if="user" :to="{name:'profile'}"><p className="w-12 h-12 rounded-full bg-back text-white grid items-center text-center mx-auto">IH</p></router-link>
+      <router-link v-if="user" :to="{name:'profile'}"><p className="w-12 h-12 rounded-full bg-back text-white grid items-center text-center mx-auto shadow-lg">IH</p></router-link>
       <router-link v-if="user" :to="{name:'signup'}"><v-icon  name="hi-logout" scale="1.5"/></router-link>
     </div>
     <div @click="toggleHamburger" className="sm:hidden hover:cursor-pointer">
