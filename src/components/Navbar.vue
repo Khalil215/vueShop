@@ -1,6 +1,6 @@
 <template>
   <div  className="flex py-5 px-9 sm:pl-28 sm:pr-12 justify-between shadow-lg items-center">
-    <div className="font-bold text-xl text-theme">VueShop</div>
+   <router-link :to="{name:'home'}"><div className="font-bold text-xl text-theme">VueShop</div></router-link>
     <div v-show="isUser" className="gap-7 font-bold hidden items-center sm:flex">
       <router-link :to="{name:'home'}">HOME</router-link>
       <router-link :to="{name:'products'}">PRODUCTS</router-link>
